@@ -41,5 +41,46 @@ int main()
     name = "Ammar";
     std::cout << "Hello World " << name;
 
+    int age;
+    age = 20;
+    std::cout << "You are " << age << " years old";
+
+    //var - decl ::= type id;
+    //type is std:: string or int
+    //id is name or age
+    //id:: = (letter or _)(letter or digits or _)
+
+    //Area of rectangle calculator
+    //Area = length x width
+
+    //int length;
+    //int width;
+    //length = 10;
+    //width = 20;
+
+    int length = 10, width = 20;
+
+    //unintialized variable - YOU MUST assign a value to a variable before you read it
+    //int area;
+    //area = 0
+    int area = 0;
+    //area = length * width;
+
+    std::cout << "Area of rectange is " << area << std::endl;
+
+    //2 different approaches to variable declarations 
+    //Block - all variables together
+    int radius, diameter;
+    std::string circleName;
+
+    //Now I can use the variable
+
+    //Inline - variables are declared just before they are used
+    int radius, diameter;
+    //Use radius, diameter
+
+    std::string circleName;
+    //Use circleName
+
 }
 
