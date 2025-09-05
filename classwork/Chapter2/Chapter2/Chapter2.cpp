@@ -82,5 +82,26 @@ int main()
     std::string circleName;
     //Use circleName
 
+    //Assignment
+    //E = E
+    //Expression = Expression 
+    //l-value = r-value
+    //left-value = right-value
+    //variables = readable value (variables, literals, expressions)
+    
+    double pi;
+    pi = 3.14159;
+
+    char letterGrade;
+    letterGrade = 'A';
+
+    bool isPassing;
+    isPassing = true;
+
+    //Assignment is right associative
+    //length = 100;
+    //width = 100;
+    length = width = 100;
+
 }
 
