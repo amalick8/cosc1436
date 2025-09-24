@@ -38,6 +38,10 @@ int main()
     {
         std::cout << "Release year must be at least 1900" << std::endl;
         releaseYear = 1900;
+    } else if (releaseYear > 2100)
+    {
+        std::cout << "Release year must be between 1900 and 2100" << std::endl;
+        releaseYear = 1900;
     };
 
     std::cout << "Enter the optional description: ";
@@ -51,11 +55,21 @@ int main()
     std::string input;
     std::cin >> input;
 
-    if (_strcmpi(input.c_str(), "Y") == 0)
+    // if (Eb) S [ else S]
+    /*if (_strcmpi(input.c_str(), "Y") == 0)
         isClassic = true;
     if (_strcmpi(input.c_str(), "N") == 0)
         isClassic = false;
+    else
+        std::cout << "You must enter either Y or N";*/
 
+    if (_strcmpi(input.c_str(), "Y") == 0)
+        isClassic = true;
+    else 
+        if (_strcmpi(input.c_str(), "N") == 0)
+            isClassic = false;
+        else
+            std::cout << "You must enter either Y or N";
     //TODO: Handle other values
 };
 
@@ -66,15 +80,12 @@ void relationalDemo()
     int left, right;
     std::cin >> left >> right;
 
-    bool areEqual = left == right;
-    std::cout << "areEqual = " << areEqual << std::endl;
-
     // Relational operators ::= > >= < <= == !=
     // Warning 1 - Equality and equals are similar and work in the same situations
     // Warning 2 - Be very, very careful of floating point comparison for equality
     //              Consider using >= or <= instead unless comparing to an integer
     // Warning 3 - Strings compare by character values not by locale
-    bool areEqual = left = right;
+    bool areEqual = left == right;
     std::cout << "areEqual = " << areEqual << std::endl;
     areEqual = left == right;
     std::cout << "areEqual = " << areEqual << std::endl;
