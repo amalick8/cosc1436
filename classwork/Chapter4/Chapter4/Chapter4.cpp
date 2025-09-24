@@ -15,6 +15,7 @@ int main()
     double userRating;         //Optional, 1.0-10.0
     bool isClassic;            //Required, false
 
+
     //Get movie details
     std::cout << "Enter movie title: ";
     std::getline(std::cin, title);
