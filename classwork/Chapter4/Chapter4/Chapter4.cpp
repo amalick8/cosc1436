@@ -34,7 +34,7 @@ int main()
 
     std::cout << "Enter the release year (1900-2100): ";
     std::cin >> releaseYear;
-    if (releaseYear < 1900)
+   /* if (releaseYear < 1900)
     {
         std::cout << "Release year must be at least 1900" << std::endl;
         releaseYear = 1900;
@@ -42,7 +42,13 @@ int main()
     {
         std::cout << "Release year must be between 1900 and 2100" << std::endl;
         releaseYear = 1900;
-    };
+    };*/
+
+    if (releaseYear < 1900 || releaseYear > 2100)
+    {
+        std::cout << "Release year must be between 1900 and 2100" << std::endl;
+        releaseYear = 1900;
+    }
 
     std::cout << "Enter the optional description: ";
     std::getline(std::cin, description);
@@ -50,6 +56,20 @@ int main()
     //TODO: Validate userRating
     std::cout << "Enter the optional user rating (1.0-10.0): ";
     std::cin >> userRating;
+    if (userRating < 1.0 || userRating > 10.0)
+    {
+        std::cout << "Rating must be between 1.0 and 10.0" << std::endl;
+        userRating = 1.0;
+    }
+    /*if (userRating < 1.0)
+    {
+        std::cout << "Rating must be between 1.0 and 10.0" << std::endl;
+        userRating = 1.0;
+    } else if (userRating > 10.0)
+    {
+        std::cout << "Rating must be between 1.0 and 10.0" << std::endl;
+        userRating = 1.0;
+    }*/
 
     std::cout << "Is this a classic (Y/N)? ";
     std::string input;
