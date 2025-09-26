@@ -17,7 +17,7 @@ int main()
     std::cout << "D)elete Movie" << std::endl;
     std::cout << "Q)uit" << std::endl;
 
-    std::string choice;
+    char choice;
     std::cin >> choice;
 
     //if (choice == "A" || choice == "aa") 
@@ -43,18 +43,23 @@ int main()
 
     switch (choice)
     {
-        case "A": std::cout << "Add not implemented" << std::endl;
-        case "a": std::cout << "Add not implemented" << std::endl;
+        case 'A': std::cout << "Add not implemented" << std::endl; break;
+        case 'a': std::cout << "Add not implemented" << std::endl; break;
 
-        case "V": std::cout << "View not implemented" << std::endl;
-        case "v": std::cout << "View not implemented" << std::endl;
+        case 'V': std::cout << "View not implemented" << std::endl; break;
+        case 'v': std::cout << "View not implemented" << std::endl; break;
 
-        case "D": std::cout << "Delete not implemented" << std::endl;
-        case "d": std::cout << "Delete not implemented" << std::endl;
+        case 'D': std::cout << "Delete not implemented" << std::endl; break;
+        case 'd': std::cout << "Delete not implemented" << std::endl; break;
 
-        case "Q": return 0;
-        case "q": return 0;
-    }
+        case 'E': std::cout << "Edit not implemented" << std::endl; break;
+        case 'e': std::cout << "Edit not implemented" << std::endl; break;
+
+        case 'Q': return 0;
+        case 'q': return 0;
+
+        default: std::cout << "Invalid choice" << std::endl; break;
+    };
     
 
 
