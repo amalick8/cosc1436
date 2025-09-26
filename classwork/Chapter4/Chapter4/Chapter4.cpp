@@ -20,21 +20,40 @@ int main()
     std::string choice;
     std::cin >> choice;
 
-    if (choice == "A" || choice == "aa") {
-        //TODO: Move add code here
-        std::cout << "Add not implemented" << std::endl;
-    } else if (choice == "V" || choice == "v") {
-        //TODO: Movie view code here
-        std::cout << "View not implemented" << std::endl;
-    } else if (choice == "E" || choice == "v") {
-        std::cout << "Edit not implemented" << std::endl;
-    } else if (choice == "D" || choice == "v") {
-        std::cout << "Delete not implemented" << std::endl;
-    } else if (choice == "Q" || choice == "v") {
-        return 0;
-    } else
+    //if (choice == "A" || choice == "aa") 
+    //{
+    //    //TODO: Move add code here
+    //    std::cout << "Add not implemented" << std::endl;
+    //} else if (choice == "V" || choice == "v") 
+    //{
+    //    //TODO: Movie view code here
+    //    std::cout << "View not implemented" << std::endl;
+    //} else if (choice == "E" || choice == "v") 
+    //{
+    //    std::cout << "Edit not implemented" << std::endl;
+    //} else if (choice == "D" || choice == "v") 
+    //{
+    //    std::cout << "Delete not implemented" << std::endl;
+    //} else if (choice == "Q" || choice == "v") {
+    //    return 0;
+    //} else
+    //{
+    //    std::cout << "invalid choice" << std::endl;
+    //};
+
+    switch (choice)
     {
-        std::cout << "invalid choice" << std::endl;
+        case "A": std::cout << "Add not implemented" << std::endl;
+        case "a": std::cout << "Add not implemented" << std::endl;
+
+        case "V": std::cout << "View not implemented" << std::endl;
+        case "v": std::cout << "View not implemented" << std::endl;
+
+        case "D": std::cout << "Delete not implemented" << std::endl;
+        case "d": std::cout << "Delete not implemented" << std::endl;
+
+        case "Q": return 0;
+        case "q": return 0;
     }
     
 
