@@ -4,10 +4,44 @@ Chapter 4
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 int main()
 {
-    //Movie details
+    //Display main menu
+    std::cout << "Movie Library" << std::endl;
+    std::cout << "--------------" << std::endl;
+    std::cout << "A)dd Movie" << std::endl;
+    std::cout << "V)iew Movies" << std::endl;
+    std::cout << "E)dit Movie" << std::endl;
+    std::cout << "D)elete Movie" << std::endl;
+    std::cout << "Q)uit" << std::endl;
+
+    std::string choice;
+    std::cin >> choice;
+
+    if (choice == "A" || choice == "aa") {
+        //TODO: Move add code here
+        std::cout << "Add not implemented" << std::endl;
+    } else if (choice == "V" || choice == "v") {
+        //TODO: Movie view code here
+        std::cout << "View not implemented" << std::endl;
+    } else if (choice == "E" || choice == "v") {
+        std::cout << "Edit not implemented" << std::endl;
+    } else if (choice == "D" || choice == "v") {
+        std::cout << "Delete not implemented" << std::endl;
+    } else if (choice == "Q" || choice == "v") {
+        return 0;
+    } else
+    {
+        std::cout << "invalid choice" << std::endl;
+    }
+    
+
+
+    //Validate input
+
+     //Movie details
     std::string title;         //Required
     std::string description;   //Optional
     int runLength;             //Required, 0
@@ -52,6 +86,7 @@ int main()
     }
 
     std::cout << "Enter the optional description: ";
+    std::cin.ignore();
     std::getline(std::cin, description);
 
     //TODO: Validate userRating
@@ -83,7 +118,7 @@ int main()
         isClassic = false;
     else
         std::cout << "You must enter either Y or N";*/
-
+    isClassic = false;
     if (_strcmpi(input.c_str(), "Y") == 0)
         isClassic = true;
     else 
@@ -92,6 +127,30 @@ int main()
         else
             std::cout << "You must enter either Y or N";
     //TODO: Handle other values
+    // Title (Year)
+    // Run Length (min)
+    // User Rating = ##
+    // Is Classic?
+    // [Description]
+    std::cout << std::fixed << std::setprecision(1) << std::endl;
+    std::cout << title << " (" << releaseYear << ")" << std::endl;
+    std::cout << "Run Length " << runLength << " mins" << std::endl;
+    std::cout << "User Rating = " << userRating << std::endl;
+   /* std::cout << "Is Classic? " << isClassic << std::endl;*/
+   /* if (isClassic)
+        std::cout << "Is Classic? Yes" << std::endl;
+    else
+        std::cout << "Is Classic? No" << std::endl;
+    if (description != "")*/
+    /*std::string classicIndicator;
+    if (isClassic)
+        classicIndicator = "Yes";
+    else
+        classicIndicator = "No";*/
+    //Conditional_expression ::= Eb ? Et : Ef
+    std::cout << "Is Classic? " << (isClassic ? "Yes" : "No")<< std::endl;
+        std::cout << description << std::endl;
+    std::cout << std::endl;
 };
 
 void relationalDemo()
