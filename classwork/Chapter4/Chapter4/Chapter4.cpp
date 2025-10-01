@@ -20,65 +20,71 @@ int main()
     //std::cout << "Postfix (x--) = " << number-- << ", x =" << number << std::endl;
 
     //Display main menu
-    std::cout << "Movie Library" << std::endl;
-    std::cout << "--------------" << std::endl;
-    std::cout << "A)dd Movie" << std::endl;
-    std::cout << "V)iew Movies" << std::endl;
-    std::cout << "E)dit Movie" << std::endl;
-    std::cout << "D)elete Movie" << std::endl;
-    std::cout << "Q)uit" << std::endl;
-
-    char choice;
-    std::cin >> choice;
-
-    //if (choice == "A" || choice == "aa") 
-    //{
-    //    //TODO: Move add code here
-    //    std::cout << "Add not implemented" << std::endl;
-    //} else if (choice == "V" || choice == "v") 
-    //{
-    //    //TODO: Movie view code here
-    //    std::cout << "View not implemented" << std::endl;
-    //} else if (choice == "E" || choice == "v") 
-    //{
-    //    std::cout << "Edit not implemented" << std::endl;
-    //} else if (choice == "D" || choice == "v") 
-    //{
-    //    std::cout << "Delete not implemented" << std::endl;
-    //} else if (choice == "Q" || choice == "v") {
-    //    return 0;
-    //} else
-    //{
-    //    std::cout << "invalid choice" << std::endl;
-    //};
-
-    switch (choice)
+    bool done = false;
+    while (!done)
     {
-        case 'A': /*std::cout << "Add not implemented" << std::endl; break;*/
-        case 'a': std::cout << "Add not implemented" << std::endl; break;
 
-        case 'V':
-        case 'v':
+
+        std::cout << "Movie Library" << std::endl;
+        std::cout << "--------------" << std::endl;
+        std::cout << "A)dd Movie" << std::endl;
+        std::cout << "V)iew Movies" << std::endl;
+        std::cout << "E)dit Movie" << std::endl;
+        std::cout << "D)elete Movie" << std::endl;
+        std::cout << "Q)uit" << std::endl;
+
+        char choice;
+        std::cin >> choice;
+
+        //if (choice == "A" || choice == "aa") 
+        //{
+        //    //TODO: Move add code here
+        //    std::cout << "Add not implemented" << std::endl;
+        //} else if (choice == "V" || choice == "v") 
+        //{
+        //    //TODO: Movie view code here
+        //    std::cout << "View not implemented" << std::endl;
+        //} else if (choice == "E" || choice == "v") 
+        //{
+        //    std::cout << "Edit not implemented" << std::endl;
+        //} else if (choice == "D" || choice == "v") 
+        //{
+        //    std::cout << "Delete not implemented" << std::endl;
+        //} else if (choice == "Q" || choice == "v") {
+        //    return 0;
+        //} else
+        //{
+        //    std::cout << "invalid choice" << std::endl;
+        //};
+
+        switch (choice)
         {
-            //Declaring a variable
-            //switch-statement
-            std::cout << "View not implemented" << std::endl;
-            break;
-        }
+            case 'A': /*std::cout << "Add not implemented" << std::endl; break;*/
+            case 'a': std::cout << "Add not implemented" << std::endl; done = true; break;
 
-        case 'D': std::cout << "Delete not implemented" << std::endl; break;
-        case 'd': std::cout << "Delete not implemented" << std::endl; break;
+            case 'V':
+            case 'v':
+            {
+                //Declaring a variable
+                //switch-statement
+                std::cout << "View not implemented" << std::endl;
+                done = true;
+                break;
+            }
 
-        case 'E': std::cout << "Edit not implemented" << std::endl; break;
-        case 'e': std::cout << "Edit not implemented" << std::endl; break;
+            case 'D': 
+            case 'd': std::cout << "Delete not implemented" << std::endl; done = true; break;
 
-        case 'Q': return 0;
-        case 'q': return 0;
+            case 'E': 
+            case 'e': std::cout << "Edit not implemented" << std::endl; done = true; break;
 
-        default: std::cout << "Invalid choice" << std::endl; break;
-    };
-    
+            case 'Q': return 0;
+            case 'q': return 0;
 
+            default: std::cout << "Invalid choice" << std::endl; break;
+        };
+
+    }
 
     //Validate input
 
@@ -101,12 +107,21 @@ int main()
         std::cout << "Title is required" << std::endl;
 
     std::cout << "Enter the run length (in minutes): ";
-    std::cin >> runLength;
-    if (runLength < 0)
+    /*runLength = -1;
+    while (runLength < 0)
     {
-        std::cout << "Run length must be at least 0" << std::endl;
-        runLength = 0;
-    };
+        std::cin >> runLength;
+        if (runLength < 0)
+            std::cout << "Error: Run length must be at least 0" << std::endl;
+    }*/
+    std::cin >> runLength;
+    while (runLength < 0)
+    {
+        //Error
+        std::string message = "Run length must be at least 0";
+        std::cout << "ERROR: " << message << std::endl;
+        std::cin >> runLength;
+    }
 
     std::cout << "Enter the release year (1900-2100): ";
     std::cin >> releaseYear;
