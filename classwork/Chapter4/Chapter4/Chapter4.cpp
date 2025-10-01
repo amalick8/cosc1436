@@ -8,6 +8,17 @@ Chapter 4
 
 int main()
 {
+
+    //Demo prefix/postfix-increment/decrement
+    //std::cout << "Enter a value: ";
+    //int number;
+    //std::cin >> number;
+
+    //std::cout <<  "Prefix (++x) = " << ++number << ", x =" << number << std::endl;
+    //std::cout << "Prefix (--x) = " << --number << ", x =" << number << std::endl;
+    //std::cout << "Postfix (x++) = " << number++ << ", x =" << number << std::endl;
+    //std::cout << "Postfix (x--) = " << number-- << ", x =" << number << std::endl;
+
     //Display main menu
     std::cout << "Movie Library" << std::endl;
     std::cout << "--------------" << std::endl;
@@ -43,11 +54,17 @@ int main()
 
     switch (choice)
     {
-        case 'A': std::cout << "Add not implemented" << std::endl; break;
+        case 'A': /*std::cout << "Add not implemented" << std::endl; break;*/
         case 'a': std::cout << "Add not implemented" << std::endl; break;
 
-        case 'V': std::cout << "View not implemented" << std::endl; break;
-        case 'v': std::cout << "View not implemented" << std::endl; break;
+        case 'V':
+        case 'v':
+        {
+            //Declaring a variable
+            //switch-statement
+            std::cout << "View not implemented" << std::endl;
+            break;
+        }
 
         case 'D': std::cout << "Delete not implemented" << std::endl; break;
         case 'd': std::cout << "Delete not implemented" << std::endl; break;
