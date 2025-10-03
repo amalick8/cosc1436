@@ -95,16 +95,21 @@ int main()
     int releaseYear;           //Optional, but between 1900 - 2100
     double userRating;         //Optional, 1.0-10.0
     bool isClassic;            //Required, false
-    std::string genre;         //Optional 
+    std::string genres;         //Optional 
 
     //Get movie details
     std::cout << "Enter movie title: ";
+    std::cin.ignore();
     std::getline(std::cin, title);
 
     //Title is required
-    bool isEmpty = title == "";
-    if (isEmpty)
+    /*bool isEmpty = title == "";
+    if (isEmpty)*/
+    while (title == "") {
         std::cout << "Title is required" << std::endl;
+        std::getline(std::cin, title);
+    }
+       
 
     std::cout << "Enter the run length (in minutes): ";
     /*runLength = -1;
@@ -164,9 +169,39 @@ int main()
     }*/
 
 
-    // Genres
-    std::cout << "Enter the optional genre: ";
-    std::getline(std::cin, genre);
+    // Genres up to 5
+    //done = false;
+    //int count = 0;
+    //while (!done && count < 5)
+    //{ 
+    //    std::string genre;
+
+
+    //std::cout << "Enter the genre (or blank to continue): ";
+    //std::getline(std::cin, genre);
+    //if (genre == "")
+    //    done = true;
+    //else
+    //    genres = genres + ", " + genre;
+
+    //++count; // or, count++
+    //}
+
+    done = false;
+    int count = 0;
+
+    for (count = 0; count < 5; ++count)
+        {
+            std::string genre;
+
+            std::cout << "Enter the genre (or blank to continue): ";
+            std::getline(std::cin, genre);
+            if (genre == "")
+                done = true;
+            else
+                genres = genres + ", " + genre;
+        }
+
 
     std::cout << "Is this a classic (Y/N)? ";
     std::string input;
@@ -205,7 +240,7 @@ int main()
     std::cout << std::fixed << std::setprecision(1) << std::endl;
     std::cout << title << " (" << releaseYear << ")" << std::endl;
     std::cout << "Run Length " << runLength << " mins" << std::endl;
-    std::cout << "Genres" << genre << std::endl;
+    std::cout << "Genres" << genres << std::endl;
     /*std::cout << "User Rating = " << userRating << std::endl;*/
    /* std::cout << "Is Classic? " << isClassic << std::endl;*/
    /* if (isClassic)
