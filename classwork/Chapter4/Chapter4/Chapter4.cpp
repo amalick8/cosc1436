@@ -199,7 +199,8 @@ int main()
             std::getline(std::cin, genre);
             if (genre == "")
                 //done = true;
-                index = 5;
+                //index = 5
+                break;
             else
                 genres = genres + ", " + genre;
         }
@@ -209,6 +210,14 @@ int main()
     std::string input;
     std::cin >> input;
 
+
+
+    //Infinite Loop
+    // while (true) {}
+    // for (;;) {}
+   
+
+
     // if (Eb) S [ else S]
     /*if (_strcmpi(input.c_str(), "Y") == 0)
         isClassic = true;
@@ -216,18 +225,20 @@ int main()
         isClassic = false;
     else
         std::cout << "You must enter either Y or N";*/
-    done = false;
-    while (!done)
+    //done = false;
+    while (true)
     {
         if (_strcmpi(input.c_str(), "Y") == 0)
         {
-            done = true;
+            //done = true;
             isClassic = true;
+            break;
 
         } else if (_strcmpi(input.c_str(), "N") == 0)
         {
             isClassic = false;
-            done = true;
+            //done = true;
+            break;
         } else {
             std::cout << "You must enter either Y or N";
             std::cin >> input;
