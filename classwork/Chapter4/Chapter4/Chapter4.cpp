@@ -188,9 +188,10 @@ int main()
     //}
 
     done = false;
-    int index = 0;
-
-    for (index = 0; index < 5; ++index)
+    /*int index = 0;*/
+    //for (count = 0; count < 5 && !done; ++count)
+    //for (index = 0; index < 5; ++index)
+    for ( int index = 0; index < 5; ++index)
         {
             std::string genre;
 
