@@ -188,16 +188,17 @@ int main()
     //}
 
     done = false;
-    int count = 0;
+    int index = 0;
 
-    for (count = 0; count < 5; ++count)
+    for (index = 0; index < 5; ++index)
         {
             std::string genre;
 
             std::cout << "Enter the genre (or blank to continue): ";
             std::getline(std::cin, genre);
             if (genre == "")
-                done = true;
+                //done = true;
+                index = 5;
             else
                 genres = genres + ", " + genre;
         }
