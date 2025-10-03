@@ -201,8 +201,10 @@ int main()
                 //done = true;
                 //index = 5
                 break;
-            else
-                genres = genres + ", " + genre;
+            else if (genre == " ")
+                continue;
+        
+            genres = genres + ", " + genre;
         }
 
 
