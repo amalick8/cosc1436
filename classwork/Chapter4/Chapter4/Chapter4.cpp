@@ -118,17 +118,20 @@ int main()
 
     //Validate input
 
+    //int id;
+    Movie movie = {0};
+
     //Get movie details
     std::cout << "Enter movie title: ";
     std::cin.ignore();
-    std::getline(std::cin, title);
+    std::getline(std::cin, movie.title);
 
     //Title is required
     /*bool isEmpty = title == "";
     if (isEmpty)*/
-    while (title == "") {
+    while (movie.title == "") {
         std::cout << "Title is required" << std::endl;
-        std::getline(std::cin, title);
+        std::getline(std::cin, movie.title);
     }
        
 
@@ -143,19 +146,19 @@ int main()
     //std::cin >> runLength;
     do //while (runLength < 0)
     {
-        std::cin >> runLength;
+        std::cin >> movie.runLength;
 
         //Error
-        if (runLength < 0)
+        if (movie.runLength < 0)
        { 
         std::string message = "Run length must be at least 0";
         std::cout << "ERROR: " << message << std::endl;
         }
         //std::cin >> runLength
-    } while (runLength < 0);
+    } while (movie.runLength < 0);
 
     std::cout << "Enter the release year (1900-2100): ";
-    std::cin >> releaseYear;
+    std::cin >> movie.releaseYear;
    /* if (releaseYear < 1900)
     {
         std::cout << "Release year must be at least 1900" << std::endl;
@@ -166,15 +169,15 @@ int main()
         releaseYear = 1900;
     };*/
 
-    while (releaseYear < 1900 || releaseYear > 2100)
+    while (movie.releaseYear < 1900 || movie.releaseYear > 2100)
     {
         std::cout << "Release year must be between 1900 and 2100" << std::endl;
-        std::cin >> releaseYear;
+        std::cin >> movie.releaseYear;
     }
 
     std::cout << "Enter the optional description: ";
     std::cin.ignore();
-    std::getline(std::cin, description);
+    std::getline(std::cin, movie.description);
 
     //TODO: Validate userRating
     /*std::cout << "Enter the optional user rating (1.0-10.0): ";
@@ -230,7 +233,7 @@ int main()
             else if (genre == " ")
                 continue;
         
-            genres = genres + ", " + genre;
+            movie.genres = movie.genres + ", " + genre;
         }
 
 
@@ -259,12 +262,12 @@ int main()
         if (_strcmpi(input.c_str(), "Y") == 0)
         {
             //done = true;
-            isClassic = true;
+            movie.isClassic = true;
             break;
 
         } else if (_strcmpi(input.c_str(), "N") == 0)
         {
-            isClassic = false;
+            movie.isClassic = false;
             //done = true;
             break;
         } else {
@@ -279,9 +282,9 @@ int main()
     // Is Classic?
     // [Description]
     std::cout << std::fixed << std::setprecision(1) << std::endl;
-    std::cout << title << " (" << releaseYear << ")" << std::endl;
-    std::cout << "Run Length " << runLength << " mins" << std::endl;
-    std::cout << "Genres" << genres << std::endl;
+    std::cout << movie.title << " (" << movie.releaseYear << ")" << std::endl;
+    std::cout << "Run Length " << movie.runLength << " mins" << std::endl;
+    std::cout << "Genres" << movie.genres << std::endl;
     /*std::cout << "User Rating = " << userRating << std::endl;*/
    /* std::cout << "Is Classic? " << isClassic << std::endl;*/
    /* if (isClassic)
@@ -295,8 +298,8 @@ int main()
     else
         classicIndicator = "No";*/
     //Conditional_expression ::= Eb ? Et : Ef
-    std::cout << "Is Classic? " << (isClassic ? "Yes" : "No")<< std::endl;
-        std::cout << description << std::endl;
+    std::cout << "Is Classic? " << (movie.isClassic ? "Yes" : "No")<< std::endl;
+        std::cout << movie.description << std::endl;
     std::cout << std::endl;
 };
 
