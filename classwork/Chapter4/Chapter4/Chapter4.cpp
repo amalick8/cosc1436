@@ -120,13 +120,13 @@ int main()
             std::cout << "Error: Run length must be at least 0" << std::endl;
     }*/
     std::cin >> runLength;
-    while (runLength < 0)
+    do //while (runLength < 0)
     {
         //Error
         std::string message = "Run length must be at least 0";
         std::cout << "ERROR: " << message << std::endl;
         std::cin >> runLength;
-    }
+    } while (runLength < 0);
 
     std::cout << "Enter the release year (1900-2100): ";
     std::cin >> releaseYear;
