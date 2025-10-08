@@ -121,6 +121,7 @@ int main()
     //int id;
     Movie movie = {0};
 
+
     //Get movie details
     std::cout << "Enter movie title: ";
     std::cin.ignore();
