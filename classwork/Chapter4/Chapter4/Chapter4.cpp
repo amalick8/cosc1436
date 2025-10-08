@@ -7,7 +7,6 @@ Chapter 4
 #include <iomanip>
 
 //Movie details
-
 struct Movie {
 
     std::string title;         //Required
