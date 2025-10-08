@@ -13,13 +13,12 @@ struct Movie {
     std::string description;   //Optional
     int runLength;             //Required, 0
     int releaseYear;           //Optional, but between 1900 - 2100
-    double userRating;         //Optional, 1.0-10.0
+    //double userRating;         //Optional, 1.0-10.0
     bool isClassic;            //Required, false
     std::string genres;         //Optional 
-
 };
 
-int main()
+int main() 
 {
 
     //Demo prefix/postfix-increment/decrement
