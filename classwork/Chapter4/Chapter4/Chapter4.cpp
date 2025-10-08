@@ -19,6 +19,26 @@ int main()
     //std::cout << "Postfix (x++) = " << number++ << ", x =" << number << std::endl;
     //std::cout << "Postfix (x--) = " << number-- << ", x =" << number << std::endl;
 
+    //Demo nested loops 10x12
+    //  1 2 3 4 5
+    //1 1 2 3 4 5
+    //2 2 4 6 8 10
+    //3 3 6 9 12 15
+
+    for (int rows = 0 ; rows < 12; ++rows)
+    { 
+        for (int cols = 0; cols < 10; ++cols)
+        {
+            if (cols != 0)
+                std::cout << std::setw(4) << (rows * cols);
+            else
+                std::cout << cols;
+
+        }
+        std::cout << std::endl;
+    }
+        
+
     //Display main menu
     bool done = false;
     do // while(!done)
