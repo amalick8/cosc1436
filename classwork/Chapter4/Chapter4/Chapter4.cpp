@@ -6,6 +6,20 @@ Chapter 4
 #include <string>
 #include <iomanip>
 
+//Movie details
+
+struct Movie {
+
+    std::string title;         //Required
+    std::string description;   //Optional
+    int runLength;             //Required, 0
+    int releaseYear;           //Optional, but between 1900 - 2100
+    double userRating;         //Optional, 1.0-10.0
+    bool isClassic;            //Required, false
+    std::string genres;         //Optional 
+
+};
+
 int main()
 {
 
@@ -25,19 +39,17 @@ int main()
     //2 2 4 6 8 10
     //3 3 6 9 12 15
 
-    for (int rows = 0 ; rows < 12; ++rows)
-    { 
-        for (int cols = 0; cols < 10; ++cols)
-        {
-            if (cols != 0)
-                std::cout << std::setw(4) << (rows * cols);
-            else
-                std::cout << cols;
+    //for (int rows = 1 ; rows <= 12; ++rows)
+    //{ 
+    //    for (int cols = 1; cols <= 10; ++cols)
+    //    {
+    //            std::cout << std::setw(4) << (rows * cols);
+    //    }
+    //    std::cout << std::endl;
+    //}
+    //    
 
-        }
-        std::cout << std::endl;
-    }
-        
+
 
     //Display main menu
     bool done = false;
@@ -107,15 +119,6 @@ int main()
     } while (!done);
 
     //Validate input
-
-     //Movie details
-    std::string title;         //Required
-    std::string description;   //Optional
-    int runLength;             //Required, 0
-    int releaseYear;           //Optional, but between 1900 - 2100
-    double userRating;         //Optional, 1.0-10.0
-    bool isClassic;            //Required, false
-    std::string genres;         //Optional 
 
     //Get movie details
     std::cout << "Enter movie title: ";
