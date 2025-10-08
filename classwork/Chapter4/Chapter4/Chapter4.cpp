@@ -21,7 +21,7 @@ int main()
 
     //Display main menu
     bool done = false;
-    while (!done)
+    do // while(!done)
     {
 
 
@@ -84,7 +84,7 @@ int main()
             default: std::cout << "Invalid choice" << std::endl; break;
         };
 
-    }
+    } while (!done);
 
     //Validate input
 
