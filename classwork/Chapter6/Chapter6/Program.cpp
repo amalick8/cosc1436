@@ -38,6 +38,7 @@ void ViewMovie()
     std::cout << std::endl;
 }
 
+/// <summary>Prompt user and add movie details.</summary>
 void AddMovie()
 {
     Movie movie; // = {0};
@@ -84,7 +85,7 @@ void AddMovie()
     std::cin.ignore();
     std::getline(std::cin, movie.description);
 
-    done = false;
+    bool done = false;
 
     for (int index = 0; index < 5; ++index)
     {
@@ -150,24 +151,23 @@ int main()
         switch (choice)
         {
             case 'A': /*std::cout << "Add not implemented" << std::endl; break;*/
-            case 'a': std::cout << "Add not implemented" << std::endl; done = true; break;
+            case 'a':AddMovie(); break;
 
             case 'V':
             case 'v':
             {
                 ViewMovie();
-                done = true;
                 break;
             }
 
             case 'D': 
-            case 'd': std::cout << "Delete not implemented" << std::endl; done = true; break;
+            case 'd': std::cout << "Delete not implemented" << std::endl; break;
 
             case 'E': 
-            case 'e': std::cout << "Edit not implemented" << std::endl; done = true; break;
+            case 'e': std::cout << "Edit not implemented" << std::endl; break;
 
-            case 'Q': return 0;
-            case 'q': return 0;
+            case 'Q': 
+            case 'q': done = true;
 
             default: std::cout << "Invalid choice" << std::endl; break;
         };
