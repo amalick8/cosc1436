@@ -126,43 +126,6 @@ int main()
     std::cin.ignore();
     std::getline(std::cin, movie.description);
 
-    //TODO: Validate userRating
-    /*std::cout << "Enter the optional user rating (1.0-10.0): ";
-    std::cin >> userRating;
-    if (userRating < 1.0 || userRating > 10.0)
-    {
-        std::cout << "Rating must be between 1.0 and 10.0" << std::endl;
-        userRating = 1.0;
-    }*/
-    /*if (userRating < 1.0)
-    {
-        std::cout << "Rating must be between 1.0 and 10.0" << std::endl;
-        userRating = 1.0;
-    } else if (userRating > 10.0)
-    {
-        std::cout << "Rating must be between 1.0 and 10.0" << std::endl;
-        userRating = 1.0;
-    }*/
-
-
-    // Genres up to 5
-    //done = false;
-    //int count = 0;
-    //while (!done && count < 5)
-    //{ 
-    //    std::string genre;
-
-
-    //std::cout << "Enter the genre (or blank to continue): ";
-    //std::getline(std::cin, genre);
-    //if (genre == "")
-    //    done = true;
-    //else
-    //    genres = genres + ", " + genre;
-
-    //++count; // or, count++
-    //}
-
     done = false;
     /*int index = 0;*/
     //for (count = 0; count < 5 && !done; ++count)
@@ -189,21 +152,6 @@ int main()
     std::cin >> input;
 
 
-
-    //Infinite Loop
-    // while (true) {}
-    // for (;;) {}
-   
-
-
-    // if (Eb) S [ else S]
-    /*if (_strcmpi(input.c_str(), "Y") == 0)
-        isClassic = true;
-    if (_strcmpi(input.c_str(), "N") == 0)
-        isClassic = false;
-    else
-        std::cout << "You must enter either Y or N";*/
-    //done = false;
     while (true)
     {
         if (_strcmpi(input.c_str(), "Y") == 0)
@@ -222,6 +170,8 @@ int main()
             std::cin >> input;
         }
     };
+
+
     //TODO: Handle other values
     // Title (Year)
     // Run Length (min)
@@ -232,19 +182,7 @@ int main()
     std::cout << movie.title << " (" << movie.releaseYear << ")" << std::endl;
     std::cout << "Run Length " << movie.runLength << " mins" << std::endl;
     std::cout << "Genres" << movie.genres << std::endl;
-    /*std::cout << "User Rating = " << userRating << std::endl;*/
-   /* std::cout << "Is Classic? " << isClassic << std::endl;*/
-   /* if (isClassic)
-        std::cout << "Is Classic? Yes" << std::endl;
-    else
-        std::cout << "Is Classic? No" << std::endl;
-    if (description != "")*/
-    /*std::string classicIndicator;
-    if (isClassic)
-        classicIndicator = "Yes";
-    else
-        classicIndicator = "No";*/
-    //Conditional_expression ::= Eb ? Et : Ef
+
     std::cout << "Is Classic? " << (movie.isClassic ? "Yes" : "No")<< std::endl;
         std::cout << movie.description << std::endl;
     std::cout << std::endl;
