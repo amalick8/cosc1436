@@ -20,10 +20,6 @@ struct Movie {
 
 int main() 
 {
-    std::cout <<  "Prefix (++x) = " << ++number << ", x =" << number << std::endl;
-
-
-
     //Display main menu
     bool done = false;
     do // while(!done)
@@ -195,11 +191,6 @@ void relationalDemo()
     int left, right;
     std::cin >> left >> right;
 
-    // Relational operators ::= > >= < <= == !=
-    // Warning 1 - Equality and equals are similar and work in the same situations
-    // Warning 2 - Be very, very careful of floating point comparison for equality
-    //              Consider using >= or <= instead unless comparing to an integer
-    // Warning 3 - Strings compare by character values not by locale
     bool areEqual = left == right;
     std::cout << "areEqual = " << areEqual << std::endl;
     areEqual = left == right;
