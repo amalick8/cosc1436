@@ -19,6 +19,7 @@ struct Movie {
 
 void ViewMovie()
 {
+    Movie movie;
 
     std::cout << std::fixed << std::setprecision(1) << std::endl;
     std::cout << movie.title << " (" << movie.releaseYear << ")" << std::endl;
@@ -32,7 +33,7 @@ void ViewMovie()
         std::cout << movie.description << std::endl;
     std::cout << std::endl;
 }
-}
+
 int main() 
 {
     //Display main menu
