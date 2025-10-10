@@ -5,6 +5,7 @@ Chapter 4
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include "Program.h"
 
 //Movie details
 struct Movie {
@@ -16,7 +17,10 @@ struct Movie {
     bool isClassic;            //Required, false
     std::string genres;         //Optional 
 };
-
+/// <summary>View details of a movie.</summary>
+/// <remarks>
+/// More details including paragraphs of data if you want.
+/// </remarks>
 void ViewMovie()
 {
     Movie movie;
@@ -34,7 +38,97 @@ void ViewMovie()
     std::cout << std::endl;
 }
 
-int main() 
+void AddMovie()
+{
+    Movie movie; // = {0};
+
+
+    //Get movie details
+    std::cout << "Enter movie title: ";
+    std::cin.ignore();
+    std::getline(std::cin, movie.title);
+
+    //Title is required
+    /*bool isEmpty = title == "";
+    if (isEmpty)*/
+    while (movie.title == "") {
+        std::cout << "Title is required" << std::endl;
+        std::getline(std::cin, movie.title);
+    }
+
+
+    std::cout << "Enter the run length (in minutes): ";
+
+    {
+        std::cin >> movie.runLength;
+
+        //Error
+        if (movie.runLength < 0)
+        {
+            std::string message = "Run length must be at least 0";
+            std::cout << "ERROR: " << message << std::endl;
+        }
+        //std::cin >> runLength
+    } while (movie.runLength < 0);
+
+    std::cout << "Enter the release year (1900-2100): ";
+    std::cin >> movie.releaseYear;
+
+    while (movie.releaseYear < 1900 || movie.releaseYear > 2100)
+    {
+        std::cout << "Release year must be between 1900 and 2100" << std::endl;
+        std::cin >> movie.releaseYear;
+    }
+
+    std::cout << "Enter the optional description: ";
+    std::cin.ignore();
+    std::getline(std::cin, movie.description);
+
+    done = false;
+
+    for (int index = 0; index < 5; ++index)
+    {
+        std::string genre;
+
+        std::cout << "Enter the genre (or blank to continue): ";
+        std::getline(std::cin, genre);
+        if (genre == "")
+            //done = true;
+            //index = 5
+            break;
+        else if (genre == " ")
+            continue;
+
+        movie.genres = movie.genres + ", " + genre;
+    }
+
+
+    std::cout << "Is this a classic (Y/N)? ";
+    std::string input;
+    std::cin >> input;
+
+
+    while (true)
+    {
+        if (_strcmpi(input.c_str(), "Y") == 0)
+        {
+            //done = true;
+            movie.isClassic = true;
+            break;
+
+        } else if (_strcmpi(input.c_str(), "N") == 0)
+        {
+            movie.isClassic = false;
+            //done = true;
+            break;
+        } else {
+            std::cout << "You must enter either Y or N";
+            std::cin >> input;
+        }
+    };
+}
+
+int main()
 {
     //Display main menu
     bool done = false;
@@ -61,9 +155,7 @@ int main()
             case 'V':
             case 'v':
             {
-                //Declaring a variable
-                //switch-statement
-                std::cout << "View not implemented" << std::endl;
+                ViewMovie();
                 done = true;
                 break;
             }
@@ -82,137 +174,11 @@ int main()
 
     } while (!done);
 
-    Movie movie = {0};
+    AddMovie(done);
 
+    //std::cin.ignore()
 
-    //Get movie details
-    std::cout << "Enter movie title: ";
-    std::cin.ignore();
-    std::getline(std::cin, movie.title);
-
-    //Title is required
-    /*bool isEmpty = title == "";
-    if (isEmpty)*/
-    while (movie.title == "") {
-        std::cout << "Title is required" << std::endl;
-        std::getline(std::cin, movie.title);
-    }
-       
-
-    std::cout << "Enter the run length (in minutes): ";
- 
-    {
-        std::cin >> movie.runLength;
-
-        //Error
-        if (movie.runLength < 0)
-       { 
-        std::string message = "Run length must be at least 0";
-        std::cout << "ERROR: " << message << std::endl;
-        }
-        //std::cin >> runLength
-    } while (movie.runLength < 0);
-
-    std::cout << "Enter the release year (1900-2100): ";
-    std::cin >> movie.releaseYear;
-
-    while (movie.releaseYear < 1900 || movie.releaseYear > 2100)
-    {
-        std::cout << "Release year must be between 1900 and 2100" << std::endl;
-        std::cin >> movie.releaseYear;
-    }
-
-    std::cout << "Enter the optional description: ";
-    std::cin.ignore();
-    std::getline(std::cin, movie.description);
-
-    done = false;
-
-    for ( int index = 0; index < 5; ++index)
-        {
-            std::string genre;
-
-            std::cout << "Enter the genre (or blank to continue): ";
-            std::getline(std::cin, genre);
-            if (genre == "")
-                //done = true;
-                //index = 5
-                break;
-            else if (genre == " ")
-                continue;
-        
-            movie.genres = movie.genres + ", " + genre;
-        }
-
-
-    std::cout << "Is this a classic (Y/N)? ";
-    std::string input;
-    std::cin >> input;
-
-
-    while (true)
-    {
-        if (_strcmpi(input.c_str(), "Y") == 0)
-        {
-            //done = true;
-            movie.isClassic = true;
-            break;
-
-        } else if (_strcmpi(input.c_str(), "N") == 0)
-        {
-            movie.isClassic = false;
-            //done = true;
-            break;
-        } else {
-            std::cout << "You must enter either Y or N";
-            std::cin >> input;
-        }
-    };
-
-    std::cout << std::fixed << std::setprecision(1) << std::endl;
-    std::cout << movie.title << " (" << movie.releaseYear << ")" << std::endl;
-    std::cout << "Run Length " << movie.runLength << " mins" << std::endl;
-    std::cout << "Genres" << movie.genres << std::endl;
-
-    std::cout << "Is Classic? " << (movie.isClassic ? "Yes" : "No")<< std::endl;
-        std::cout << movie.description << std::endl;
-    std::cout << std::endl;
+    //Function call ::= func()
+    ViewMovie();
 };
 
-void relationalDemo()
-{
-    std::cout << "Enter two values: ";
-
-    int left, right;
-    std::cin >> left >> right;
-
-    bool areEqual = left == right;
-    std::cout << "areEqual = " << areEqual << std::endl;
-    areEqual = left == right;
-    std::cout << "areEqual = " << areEqual << std::endl;
-
-    std::cout << "> " << (left > right) << std::endl;
-    std::cout << "< " << (left < right) << std::endl;
-    std::cout << ">= " << (left >= right) << std::endl;
-    std::cout << "<= " << (left <= right) << std::endl;
-    std::cout << "== " << (left == right) << std::endl;
-    std::cout << "!= " << (left != right) << std::endl;
-
-    float someValue = (10 / 3.0) * 3.0;
-    float someOtherValue = (10 * 3.0) / 3.0;
-    areEqual = someValue == someOtherValue;
-    std::cout << areEqual << std::endl;
-
-    // Comparison works but is case sensitive
-    std::string name1 = "Bob";
-    std::string name2 = "bob";
-    std::cout << (name1 == name2) << std::endl;
-
-    // To compare strings case insensitive use the strcmpi
-    //  > 0 ::= left > right
-    //  < 0 ::= left < right
-    //  == 0 ::= left == right
-    areEqual = _strcmpi(name1.c_str(), name2.c_str()) == 0;
-
-
-}
