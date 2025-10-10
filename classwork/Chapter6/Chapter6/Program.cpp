@@ -13,18 +13,32 @@ struct Movie {
     std::string description;   //Optional
     int runLength;             //Required, 0
     int releaseYear;           //Optional, but between 1900 - 2100
-    //double userRating;         //Optional, 1.0-10.0
     bool isClassic;            //Required, false
     std::string genres;         //Optional 
 };
 
+void ViewMovie()
+{
+
+    std::cout << std::fixed << std::setprecision(1) << std::endl;
+    std::cout << movie.title << " (" << movie.releaseYear << ")" << std::endl;
+    std::cout << "Run Length " << movie.runLength << " mins" << std::endl;
+    std::cout << "Genres" << movie.genres << std::endl;
+    std::cout << "Is Classic? " << (movie.isClassic ? "Yes" : "No") << std::endl;
+    std::cout << movie.description << std::endl;
+    std::cout << std::endl;
+
+    if (movie.description != "")
+        std::cout << movie.description << std::endl;
+    std::cout << std::endl;
+}
+}
 int main() 
 {
     //Display main menu
     bool done = false;
     do // while(!done)
     {
-
 
         std::cout << "Movie Library" << std::endl;
         std::cout << "--------------" << std::endl;
@@ -67,9 +81,6 @@ int main()
 
     } while (!done);
 
-    //Validate input
-
-    //int id;
     Movie movie = {0};
 
 
