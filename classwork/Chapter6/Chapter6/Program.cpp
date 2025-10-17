@@ -34,6 +34,9 @@ void ResetTextColor()
 {
     std::cout << "\033[0m";
 }
+//Function prototypes
+void DisplayError(std::string);
+
 
 void SetTextColor(ForegroundColor color)
 {
