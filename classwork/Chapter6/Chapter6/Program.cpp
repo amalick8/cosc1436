@@ -179,6 +179,12 @@ Movie AddMovie()
 }
 
 void DeleteMovie(Movie movie)
+{
+    if (!Confirm("Are you sure you want to delete " + movie.title + "?"))
+        return;
+
+    //TODO: DeleteMovie
+}
 
 int main()
 {
