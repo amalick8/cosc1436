@@ -83,9 +83,9 @@ void ViewMovie(Movie movie)
 }
 
 /// <summary>Prompt user and add movie details.</summary>
-void AddMovie()
+void AddMovie( Movie movie)
 {
-    Movie movie;// = {0};
+    //Movie movie;// = {0};
 
     //Get movie details
     std::cout << "Enter movie title: ";
@@ -182,7 +182,7 @@ int main()
         switch (choice)
         {
             case 'A':
-            case 'a': AddMovie(); break;
+            case 'a': AddMovie(movie); break;
 
             case 'V':
             case 'v': ViewMovie(movie); break;
