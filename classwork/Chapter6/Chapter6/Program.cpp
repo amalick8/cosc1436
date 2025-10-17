@@ -220,10 +220,10 @@ int main()
             case 'v': ViewMovie(movie); break;
 
             case 'D':
-            case 'd': DisplayWarning("Delete not implemented"); break;
+            case 'd': DeleteMovie(movie); break;
 
             case 'E':
-            case 'e': DisplayWarning("Edit not implemented"); break;
+            case 'e': EditMovie(movie); break;
 
             case 'Q':
             case 'q': done = true;
