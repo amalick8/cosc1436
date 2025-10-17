@@ -184,6 +184,7 @@ void DeleteMovie(Movie movie)
         return;
 
     //TODO: DeleteMovie
+    DisplayWarning("Not implemented yet");
 }
 
 int main()
