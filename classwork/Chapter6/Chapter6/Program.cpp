@@ -30,6 +30,7 @@ enum class ForegroundColor {
     BrightCyan = 96
 };
 
+
 void ResetTextColor()
 {
     std::cout << "\033[0m";
