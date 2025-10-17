@@ -187,6 +187,11 @@ void DeleteMovie(Movie movie)
     DisplayWarning("Not implemented yet");
 }
 
+void EditMovie(Movie movie)
+{
+    DisplayWarning("Not implemented yet");
+}
+
 int main()
 {
     //Display main menu
