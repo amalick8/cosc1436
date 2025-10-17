@@ -5,7 +5,6 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include "Program.h"
 
 //Movie details
 struct Movie
@@ -40,6 +39,28 @@ void SetTextColor(ForegroundColor color)
 {
     std::cout << "\033[" << (int)color << "m";
 }
+/// <summary>Display a confirmation message</summary>
+/// <param name="message">Message to show.</param>
+/// <returns>Returns true or false depending on whether confirmed or not.</returns>
+bool Confirm(std::string message)
+{
+    std::cout << message << " ( Y / N ) ";
+    std::string input;
+    std::cin >> input;
+
+    while (true)
+    {
+        if (_strcmpi(input.c_str(), "Y") == 0)
+            return true;
+        else if (_strcmpi(input.c_str(), "N") == 0)
+            return false;
+        else {
+            DisplayError("You must enter either Y or N");
+
+            std::cin >> input;
+        }
+    }
+}
 
 /// <summary>Displays an error message.</summary>
 /// <param name="message">Message to display.</param>
@@ -49,6 +70,24 @@ void DisplayError(std::string message)
     SetTextColor(ForegroundColor::BrightRed);
     std::cout << "ERROR: " << message << std::endl;
     ResetTextColor();
+}
+
+std::string ReadString (std::string message, bool isRequired)
+{
+    //Get movie details
+    std::cout << message;
+    std::string input;
+    std::getline(std::cin, input);
+
+    //Title is required
+    while (isRequired && input == "")
+    {
+        DisplayError("Value is required");
+
+        std::getline(std::cin, input);
+    }
+
+    return input;
 }
 
 /// <summary>Displays a warning message.</summary>
@@ -83,12 +122,12 @@ void ViewMovie(Movie movie)
 }
 
 /// <summary>Prompt user and add movie details.</summary>
-void AddMovie( Movie movie)
+Movie AddMovie()
 {
-    //Movie movie;// = {0};
+    Movie movie;// = {0};
 
     //Get movie details
-    std::cout << "Enter movie title: ";
+    movie.title = ReadString("Enter movie title: ", title);
     std::cin.ignore();
     std::getline(std::cin, movie.title);
 
@@ -126,10 +165,7 @@ void AddMovie( Movie movie)
     // Genres, up to 5
     for (int index = 0; index < 5; ++index)
     {
-        std::string genre;
-
-        std::cout << "Enter the genre (or blank to continue): ";
-        std::getline(std::cin, genre);
+        std::string genre = ReadString("Enter the genre (or blank to continue): ", false);
         if (genre == "")
             break;
         else if (genre == " ")
@@ -137,28 +173,12 @@ void AddMovie( Movie movie)
 
         movie.genres = movie.genres + ", " + genre;
     }
+    movie.isClassic = Confirm("Is this a classic movie?");
 
-    std::cout << "Is this a classic (Y/N)? ";
-    std::string input;
-    std::cin >> input;
-
-    while (true)
-    {
-        if (_strcmpi(input.c_str(), "Y") == 0)
-        {
-            movie.isClassic = true;
-            break;
-        } else if (_strcmpi(input.c_str(), "N") == 0)
-        {
-            movie.isClassic = false;
-            break;
-        } else {
-            DisplayError("You must enter either Y or N");
-
-            std::cin >> input;
-        }
-    }
+    return movie;
 }
+
+void DeleteMovie(Movie movie)
 
 int main()
 {
@@ -182,7 +202,7 @@ int main()
         switch (choice)
         {
             case 'A':
-            case 'a': AddMovie(movie); break;
+            case 'a': movie = AddMovie(); break;
 
             case 'V':
             case 'v': ViewMovie(movie); break;
