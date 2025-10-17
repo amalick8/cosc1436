@@ -42,6 +42,7 @@ void SetTextColor(ForegroundColor color)
 /// <summary>Display a confirmation message</summary>
 /// <param name="message">Message to show.</param>
 /// <returns>Returns true or false depending on whether confirmed or not.</returns>
+
 bool Confirm(std::string message)
 {
     std::cout << message << " ( Y / N ) ";
