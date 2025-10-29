@@ -278,6 +278,9 @@ void ArrayDemo()
     daysInMonth[3] = daysInMonth[5] = daysInMonth[8] = daysInMonth[10] = 30;
 
     //Init array using {0}
+    
+    // Implicit array sizing
+    
     //Set each element to its element number (element 1 = 1, element 2 = 2, etc)
     //Approach 1 for small arrays only
     numbers[0] = 1;
