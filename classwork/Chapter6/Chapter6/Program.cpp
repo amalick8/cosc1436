@@ -17,6 +17,9 @@ struct Movie
     std::string genres;         //Optional (comma separated list of genres)
 };
 
+//DO NOT DO THIS!!!
+//int g_thisIsAGlobalVariable = 100;
+
 /// <summary>Defines possible foreground colors.</summary>
 enum class ForegroundColor {
     Black = 30,
@@ -30,26 +33,26 @@ enum class ForegroundColor {
     BrightCyan = 96
 };
 
+//Function prototypes
+//Forward declarations/referencing
+void DisplayError(std::string);
 
 void ResetTextColor()
 {
     std::cout << "\033[0m";
 }
-//Function prototypes
-void DisplayError(std::string);
-
 
 void SetTextColor(ForegroundColor color)
 {
     std::cout << "\033[" << (int)color << "m";
 }
-/// <summary>Display a confirmation message</summary>
+
+/// <summary>Display a confirmation message.</summary>
 /// <param name="message">Message to show.</param>
 /// <returns>Returns true or false depending on whether confirmed or not.</returns>
-
 bool Confirm(std::string message)
 {
-    std::cout << message << " ( Y / N ) ";
+    std::cout << message << " (Y/N) ";
     std::string input;
     std::cin >> input;
 
@@ -77,14 +80,41 @@ void DisplayError(std::string message)
     ResetTextColor();
 }
 
-std::string ReadString (std::string message, bool isRequired)
+/// <summary>Displays a warning message.</summary>
+/// <param name="message">Message to display.</param>
+void DisplayWarning(std::string message)
 {
-    //Get movie details
+    SetTextColor(ForegroundColor::BrightYellow);
+    std::cout << message << std::endl;
+    ResetTextColor();
+}
+
+int ReadInt(int minimumValue, int maximumValue)
+{
+    do
+    {
+        int value;
+        std::cin >> value;
+
+        if (value >= minimumValue && value <= maximumValue)
+            return value;
+
+        DisplayError("Value is outside range");
+    } while (true);
+}
+
+int ReadInt(int minimumValue)
+{
+    return ReadInt(minimumValue, INT_MAX);
+}
+
+std::string ReadString(std::string message, bool isRequired)
+{
     std::cout << message;
+
     std::string input;
     std::getline(std::cin, input);
 
-    //Title is required
     while (isRequired && input == "")
     {
         DisplayError("Value is required");
@@ -95,21 +125,18 @@ std::string ReadString (std::string message, bool isRequired)
     return input;
 }
 
-/// <summary>Displays a warning message.</summary>
-/// <param name="message">Message to display.</param>
-void DisplayWarning(std::string message)
-{
-    SetTextColor(ForegroundColor::BrightYellow);
-    std::cout << message << std::endl;
-    ResetTextColor();
-}
-
 /// <summary>View details of a movie.</summary>
 /// <remarks>
 /// More details including paragraphs of data if you want.
 /// </remarks>
 void ViewMovie(Movie movie)
 {
+    if (movie.title == "")
+    {
+        DisplayWarning("No movies exist");
+        return;
+    }
+
     // View movie
     //    Title (Year)
     //    Run Length # min
@@ -132,40 +159,16 @@ Movie AddMovie()
     Movie movie;// = {0};
 
     //Get movie details
-    movie.title = ReadString("Enter movie title: ", title);
-    std::cin.ignore();
-    std::getline(std::cin, movie.title);
-
-    //Title is required
-    while (movie.title == "")
-    {
-        DisplayError("Title is required");
-        std::getline(std::cin, movie.title);
-    }
+    movie.title = ReadString("Enter movie title: ", true);
 
     std::cout << "Enter the run length (in minutes): ";
-    do
-    {
-        std::cin >> movie.runLength;
-
-        //Error
-        if (movie.runLength < 0)
-            DisplayError("Run length must be at least 0");
-
-    } while (movie.runLength < 0);
+    movie.runLength = ReadInt(0);
 
     std::cout << "Enter the release year (1900-2100): ";
     std::cin >> movie.releaseYear;
-    while (movie.releaseYear < 1900 || movie.releaseYear > 2100)
-    {
-        DisplayError("Release year must be between 1900 and 2100");
+    movie.releaseYear = ReadInt(1900, 2100);
 
-        std::cin >> movie.releaseYear;
-    }
-
-    std::cout << "Enter the optional description: ";
-    std::cin.ignore();
-    std::getline(std::cin, movie.description);
+    movie.description = ReadString("Enter the optional description: ", false);
 
     // Genres, up to 5
     for (int index = 0; index < 5; ++index)
@@ -178,27 +181,89 @@ Movie AddMovie()
 
         movie.genres = movie.genres + ", " + genre;
     }
+
     movie.isClassic = Confirm("Is this a classic movie?");
 
     return movie;
 }
 
-void DeleteMovie(Movie movie)
+void DeleteMovie(Movie& movie)
 {
     if (!Confirm("Are you sure you want to delete " + movie.title + "?"))
         return;
 
-    //TODO: DeleteMovie
-    DisplayWarning("Not implemented yet");
+    //TODO: Delete movie
+    //DisplayWarning("Not implemented yet");
+    movie.title = "";
 }
 
-void EditMovie(Movie movie)
+void EditMovie(Movie& movie)
 {
     DisplayWarning("Not implemented yet");
 }
+
+//Test function overloading
+void Display(int value)
+{
+    std::cout << "int" << std::endl;
+}
+
+void Display(double value)
+{
+    std::cout << "double" << std::endl;
+}
+
+void Display(float value)
+{
+    std::cout << "float" << std::endl;
+}
+
+void Display(short value1, double value2)
+{
+    std::cout << "int, double" << std::endl;
+}
+
+void Display(short value, float)
+{
+    std::cout << "short, float" << std::endl;
+}
+
+void Display(int, short)
+{
+    std::cout << "int, short" << std::endl;
+}
+
+void Display(short, int)
+{
+    std::cout << "int, short" << std::endl;
+}
+
+//void TestFunctionOverloading()
+//{ 
+//    Display(10);   //Display(int)
+//    Display(4.56); // Display(double)
+//    Display((short)34);  // Display(int) -> shortest type coercion
+//    Display(10, 4.56F);  // Display(int, double)
+//
+//    long lValue = 10000L;
+//    Display(lValue, 4.56);
+//
+//    //Display("Hello", 4.56); //Compiler error, no matches
+//    //Display(10, "Hello");   //Compiler error, no matches
+//
+//    Display('c', 4.56F);   // short, float
+//    Display((short)5, (short)10);
+//}
 
 int main()
 {
+    //Cannot calculate the size of an array at runtime so use a const int variable
+    const int MaximumMovies = 100;
+
+    //TODO: Leaving this for now to avoid breaking code
+    Movie movie;
+    Movie movies[MaximumMovies];
+
     //Display main menu
     bool done = false;
     do
@@ -213,8 +278,6 @@ int main()
 
         char choice;
         std::cin >> choice;
-
-        Movie movie;
 
         switch (choice)
         {
@@ -239,5 +302,5 @@ int main()
 
     //std::cin.ignore();
     // Function call ::= func () 
-    //ViewMovie();
+    //ViewMovie();    
 }
