@@ -264,6 +264,16 @@ void Display(short, int)
 //    Display((short)5, (short)10);
 //}
 
+void ArrayDemo()
+{
+    int numbers[100];
+
+    //Set each element to its element number (element 1 = 1, element 2 = 2, etc)
+
+}
+
+
+
 int main()
 {
     //std::cout << Factorial(5) << std::endl;
