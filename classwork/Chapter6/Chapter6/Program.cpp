@@ -266,10 +266,18 @@ void Display(short, int)
 
 void ArrayDemo()
 {
+
     const int MaxNumbers = 100;
     //int numbers[100]
     int numbers[MaxNumbers];
 
+    int daysInMonth[12] = { 0 };
+    //Approach 1 - correct but not readable
+    daysInMonth[0] = daysInMonth[2] = daysInMonth[4] = daysInMonth[6] = daysInMonth[7] = daysInMonth[9] = daysInMonth[11] = 31;
+    daysInMonth[1] = 28;
+    daysInMonth[3] = daysInMonth[5] = daysInMonth[8] = daysInMonth[10] = 30;
+
+    //Init array using {0}
     //Set each element to its element number (element 1 = 1, element 2 = 2, etc)
     //Approach 1 for small arrays only
     numbers[0] = 1;
@@ -277,7 +285,7 @@ void ArrayDemo()
     numbers[2] = 3;
 
     //Approach 2 for any array
-    for (int index = 0; index <= MaxNumbers; ++index)
+    for (int index = 0; index < MaxNumbers; ++index)
         numbers[index] = index + 1;
 
     for (int index = 0; index < MaxNumbers; ++index)
