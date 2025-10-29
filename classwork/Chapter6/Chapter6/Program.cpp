@@ -266,7 +266,7 @@ void Display(short, int)
 
 int main()
 {
-    std::cout << Factorial(5) << std::endl;
+    //std::cout << Factorial(5) << std::endl;
     //Cannot calculate the size of an array at runtime so use a const int variable
     const int MaximumMovies = 100;
 
