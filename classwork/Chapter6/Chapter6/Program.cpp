@@ -266,9 +266,20 @@ void Display(short, int)
 
 void ArrayDemo()
 {
+    const int MaxNumbers = 100;
     int numbers[100];
 
     //Set each element to its element number (element 1 = 1, element 2 = 2, etc)
+    //Approach 1 for small arrays only
+    numbers[0] = 1;
+    numbers[1] = 2;
+    numbers[2] = 3;
+
+    //Approach 2 for any array
+    for (int index = 0; index < MaxNumbers; ++index)
+        numbers[index] = index + 1;
+
+
 
 }
 
