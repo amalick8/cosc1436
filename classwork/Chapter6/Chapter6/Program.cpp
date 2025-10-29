@@ -277,6 +277,7 @@ int main()
     // Array operator []
     // A[index] this is the array access operator
     // If I want the first element I would take index 0 etc
+    Movie firstElement = movies[0];
 
     //Display main menu
     bool done = false;
