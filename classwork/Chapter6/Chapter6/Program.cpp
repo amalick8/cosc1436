@@ -202,12 +202,12 @@ void EditMovie(Movie& movie)
     DisplayWarning("Not implemented yet");
 }
 
-int Factorial(int value)
-{
-    if (value <= 1)
-        return 1;
-    return value * Factorial(value - 1);
-}
+//int Factorial(int value)
+//{
+//    if (value <= 1)
+//        return 1;
+//    return value * Factorial(value - 1);
+//}
 
 //Test function overloading
 void Display(int value)
