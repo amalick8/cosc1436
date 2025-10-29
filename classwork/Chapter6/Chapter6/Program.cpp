@@ -267,7 +267,8 @@ void Display(short, int)
 void ArrayDemo()
 {
     const int MaxNumbers = 100;
-    int numbers[100];
+    //int numbers[100]
+    int numbers[MaxNumbers];
 
     //Set each element to its element number (element 1 = 1, element 2 = 2, etc)
     //Approach 1 for small arrays only
@@ -276,17 +277,17 @@ void ArrayDemo()
     numbers[2] = 3;
 
     //Approach 2 for any array
-    for (int index = 0; index < MaxNumbers; ++index)
+    for (int index = 0; index <= MaxNumbers; ++index)
         numbers[index] = index + 1;
 
+    for (int index = 0; index < MaxNumbers; ++index)
+        std::cout << numbers[index] << std::endl;
 
-
-}
-
-
+};
 
 int main()
 {
+    ArrayDemo();
     //std::cout << Factorial(5) << std::endl;
     //Cannot calculate the size of an array at runtime so use a const int variable
     const int MaximumMovies = 100;
