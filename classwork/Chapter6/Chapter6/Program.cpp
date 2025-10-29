@@ -202,6 +202,11 @@ void EditMovie(Movie& movie)
     DisplayWarning("Not implemented yet");
 }
 
+int Factorial(int value)
+{
+    return value * Factorial(value - 1);
+}
+
 //Test function overloading
 void Display(int value)
 {
@@ -257,6 +262,7 @@ void Display(short, int)
 
 int main()
 {
+    std::cout << Factorial(5) << std::endl;
     //Cannot calculate the size of an array at runtime so use a const int variable
     const int MaximumMovies = 100;
 
