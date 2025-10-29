@@ -274,6 +274,10 @@ int main()
     Movie movie;
     Movie movies[MaximumMovies];
 
+    // Array operator []
+    // A[index] this is the array access operator
+    // If I want the first element I would take index 0 etc
+
     //Display main menu
     bool done = false;
     do
