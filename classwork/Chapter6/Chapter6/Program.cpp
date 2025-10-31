@@ -305,10 +305,14 @@ void ArrayDemo()
     // ++x := x = x + 1; ret x
     // x++ := temp = x; x  = + 1; ret temp
     int outIndex = 0;
-    std::cout << ++numbers[outIndex] << std::endl;
-    std::cout << numbers[++outIndex] << std::endl;
-    std::cout << numbers[outIndex++] << std::endl;
-    std::cout << numbers[outIndex]++ << std::endl;
+    std::cout << ++numbers[outIndex] << std::endl; //Modifies element ++numbers[0], numbers[0] = 2, prints 2
+    std::cout << numbers[outIndex]++ << std::endl; //Modifies element, numbers[0]++, numbers[3] = 3, prints 2
+    std::cout << numbers[++outIndex] << std::endl; //Modifies index, numbers[++0], outIndex = 1
+                                                   // numbers[1], prints 2
+    std::cout << numbers[outIndex++] << std::endl; //Modifies index, numbers[0++], numbers[1++], outIndex = 2,
+                                                   // numbers[1], prints 2
+
+
 
 }
 
