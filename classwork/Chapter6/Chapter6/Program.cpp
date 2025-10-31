@@ -312,6 +312,18 @@ void ArrayDemo()
     std::cout << numbers[outIndex++] << std::endl; //Modifies index, numbers[0++], numbers[1++], outIndex = 2,
                                                    // numbers[1], prints 2
 
+    //Arrays
+    // Access elements
+    // Can't do
+    //int numbers2[MaxNumbers] = numbers; //Assignment, have to manually copy
+    int numbers3[MaxNumbers] = {0};
+    bool areArraysEqual = numbers == numbers3; //Comparison does't work, in(equality) complies but doesn't
+                                               // Have to use a for loop to compare elements
+
+    std::cout << numbers; //Output does not work, have to use a for loop
+    //std::cin >> numbers;  //Input will not compile
+
+
 
 
 }
