@@ -153,6 +153,12 @@ void ViewMovie(Movie movie)
     std::cout << std::endl;
 }
 
+void ViewMovies( Movie movies[] )
+{
+    //Enumerate movies until we run out
+    for (int index 0; index < movie length. ++index)
+        ViewMovie(movies[index]);
+}
 /// <summary>Prompt user and add movie details.</summary>
 Movie AddMovie()
 {
@@ -295,8 +301,9 @@ void ArrayDemo()
     numbers[2] = 3;
 
     //Approach 2 for any array
-    for (int index = 0; index < MaxNumbers; ++index)
-        numbers[index] = index + 1;
+    int rangeIndex = 0;
+        for (int& number: numbers)
+            number = ++rangeIndex;
     //for-range ::= for (T var: array)
     for (int number: numbers)
         std::cout << numbers << std::endl;
@@ -364,7 +371,7 @@ int main()
         switch (choice)
         {
             case 'A':
-            case 'a': movie = AddMovie(); break;
+            case 'a': movies[0] = AddMovie(); break;
 
             case 'V':
             case 'v': ViewMovie(movie); break;
