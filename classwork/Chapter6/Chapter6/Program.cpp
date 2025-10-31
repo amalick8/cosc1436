@@ -209,7 +209,7 @@ void DeleteMovie(Movie& movie)
     movie.title = "";
 }
 
-void EditMovie(Movie& movie)
+void EditMovie()
 {
     DisplayWarning("Not implemented yet");
 }
@@ -404,7 +404,7 @@ int main()
             case 'd': DeleteMovie(movie); break;
                 
             case 'E':
-            case 'e': EditMovie(movie); break;
+            case 'e': EditMovie(); break;
 
             case 'Q':
             case 'q': done = true;
