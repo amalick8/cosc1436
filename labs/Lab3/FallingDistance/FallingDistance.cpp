@@ -1,11 +1,11 @@
 
- // Lab 3 - Falling Distance Calculator
- // M. Ammar Malick
+ //Lab 3 - Falling Distance Calculator
+ //M. Ammar Malick
  // COSC 1436 - Fall 2025
- //TODO: double check the velocity cap works right
- //remind myself: g = 9.8, terminal velocity = 90 and to also put main at the end
+ //ToDo: double check the velocity cap works right
+ //remind myself: g = 9.8, terminal velocity = 90 meters per scnd and to also put main at the end
   
- 
+
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -15,7 +15,7 @@ void DisplayProgramInfo()
     std::cout << "Falling Distance Calculator" << std::endl;
     std::cout << "M. Ammar Malick" << std::endl;
     std::cout << "COSC 1436 - Fall 2025" << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl; //purpose is to make a blank line
 }
 
 int GetFallingTime()
@@ -137,7 +137,7 @@ void DisplayFallingTable(int maxSeconds, char unit)
 
     std::cout << std::endl;
 }
-
+//int main at the end
 int main()
 {
     DisplayProgramInfo();
@@ -149,6 +149,5 @@ int main()
     unitChoice = GetUnitPreference();
 
     DisplayFallingTable(fallingTime, unitChoice);
-
     return 0;
 }
