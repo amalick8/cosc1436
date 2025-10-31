@@ -297,9 +297,9 @@ void ArrayDemo()
     //Approach 2 for any array
     for (int index = 0; index < MaxNumbers; ++index)
         numbers[index] = index + 1;
-
-    for (int index = 0; index < MaxNumbers; ++index)
-        std::cout << numbers[index] << std::endl;
+    //for-range ::= for (T var: array)
+    for (int number: numbers)
+        std::cout << numbers << std::endl;
 
     //Prefix/postfix and arrays
     // ++x := x = x + 1; ret x
@@ -322,6 +322,8 @@ void ArrayDemo()
 
     std::cout << numbers; //Output does not work, have to use a for loop
     //std::cin >> numbers;  //Input will not compile
+
+    //If you want to print an Array, you need to use a for loop
 
 
 
