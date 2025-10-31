@@ -286,7 +286,7 @@ void ArrayDemo()
     int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     // Implicit array sizing
-    int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    //int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     //Set each element to its element number (element 1 = 1, element 2 = 2, etc)
     //Approach 1 for small arrays only
@@ -300,6 +300,16 @@ void ArrayDemo()
 
     for (int index = 0; index < MaxNumbers; ++index)
         std::cout << numbers[index] << std::endl;
+
+    //Prefix/postfix and arrays
+    // ++x := x = x + 1; ret x
+    // x++ := temp = x; x  = + 1; ret temp
+    int outIndex = 0;
+    std::cout << ++numbers[outIndex] << std::endl;
+    std::cout << numbers[++outIndex] << std::endl;
+    std::cout << numbers[outIndex++] << std::endl;
+    std::cout << numbers[outIndex]++ << std::endl;
+
 }
 
 int main()
