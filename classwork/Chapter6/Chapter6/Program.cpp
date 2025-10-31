@@ -153,11 +153,17 @@ void ViewMovie(Movie movie)
     std::cout << std::endl;
 }
 
-void ViewMovies( Movie movies[] )
+void ViewMovies( Movie movies[], int size )
 {
     //Enumerate movies until we run out
-    for (int index 0; index < movie length. ++index)
+    for (int index = 0; index < size; ++index)
+    {
+        if (movies[index].title == "")
+            return;
+
         ViewMovie(movies[index]);
+    };
+       
 }
 /// <summary>Prompt user and add movie details.</summary>
 Movie AddMovie()
@@ -206,6 +212,24 @@ void DeleteMovie(Movie& movie)
 void EditMovie(Movie& movie)
 {
     DisplayWarning("Not implemented yet");
+}
+
+void AddToMovieArray(Movie movies[], int size, Movie movie)
+{
+    //Enumerate the array looking for the first blank movie
+    for (int index = 0; index < size; ++index)
+    {
+        if (movies[index].title == "")
+        {
+            //Set the array element
+            movies[index] = movie;
+            return index;
+        }
+    }
+
+    DisplayError("No space available for new movie");
+    return -1; 
+
 }
 
 //Test function overloading
@@ -371,10 +395,10 @@ int main()
         switch (choice)
         {
             case 'A':
-            case 'a': movies[0] = AddMovie(); break;
+            case 'a': AddToMovieArray(movies, MaximumMovies, AddMovie(()); break;
 
             case 'V':
-            case 'v': ViewMovie(movie); break;
+            case 'v': ViewMovies(movies, MaximumMovies); break;
 
             case 'D':
             case 'd': DeleteMovie(movie); break;
