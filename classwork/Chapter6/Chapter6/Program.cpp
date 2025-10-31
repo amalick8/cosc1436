@@ -214,7 +214,7 @@ void EditMovie(Movie& movie)
     DisplayWarning("Not implemented yet");
 }
 
-void AddToMovieArray(Movie movies[], int size, Movie movie)
+int AddToMovieArray(Movie movies[], int size, Movie movie)
 {
     //Enumerate the array looking for the first blank movie
     for (int index = 0; index < size; ++index)
@@ -395,14 +395,14 @@ int main()
         switch (choice)
         {
             case 'A':
-            case 'a': AddToMovieArray(movies, MaximumMovies, AddMovie(()); break;
+            case 'a': AddToMovieArray(movies, MaximumMovies, AddMovie(());break;
 
             case 'V':
             case 'v': ViewMovies(movies, MaximumMovies); break;
 
             case 'D':
             case 'd': DeleteMovie(movie); break;
-
+                
             case 'E':
             case 'e': EditMovie(movie); break;
 
