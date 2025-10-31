@@ -202,15 +202,6 @@ void EditMovie(Movie& movie)
     DisplayWarning("Not implemented yet");
 }
 
-//int Factorial(int value)
-//{
-//    if (value <= 1)
-//        return 1;
-//    return value * Factorial(value - 1);
-//}
-
-
-//
 //Test function overloading
 void Display(int value)
 {
@@ -264,23 +255,39 @@ void Display(short, int)
 //    Display((short)5, (short)10);
 //}
 
+int Factorial(int value)
+{
+    if (value <= 1)
+        return 1;
+
+    return value * Factorial(value - 1);
+}
+
 void ArrayDemo()
 {
-
     const int MaxNumbers = 100;
-    //int numbers[100]
-    int numbers[MaxNumbers];
 
-    int daysInMonth[12] = { 0 };
+    //Init array using { 0 }
+    int numbers[MaxNumbers] = {0};
+    //int numbers[100];
+
+    //# of days in each month
+    //int daysInMonth[12] = { 0 };
     //Approach 1 - correct but not readable
-    daysInMonth[0] = daysInMonth[2] = daysInMonth[4] = daysInMonth[6] = daysInMonth[7] = daysInMonth[9] = daysInMonth[11] = 31;
+    /*daysInMonth[0] = daysInMonth[2] = daysInMonth[4] = daysInMonth[6] = daysInMonth[7]
+                   = daysInMonth[9] = daysInMonth[11] = 31;
     daysInMonth[1] = 28;
-    daysInMonth[3] = daysInMonth[5] = daysInMonth[8] = daysInMonth[10] = 30;
+    daysInMonth[3] = daysInMonth[5] = daysInMonth[8] = daysInMonth[10] = 30;*/
 
-    //Init array using {0}
-    
+    //Approach 2 - init expression
+    // Zero init - each element is set to 0// { 0 }
+    // Full init - each element is assigned a value
+    // Partial init - each element is assigned a value and remaining elements are 0 initialized    
+    int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
     // Implicit array sizing
-    
+    int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
     //Set each element to its element number (element 1 = 1, element 2 = 2, etc)
     //Approach 1 for small arrays only
     numbers[0] = 1;
@@ -293,13 +300,13 @@ void ArrayDemo()
 
     for (int index = 0; index < MaxNumbers; ++index)
         std::cout << numbers[index] << std::endl;
-
-};
+}
 
 int main()
 {
     ArrayDemo();
     //std::cout << Factorial(5) << std::endl;
+
     //Cannot calculate the size of an array at runtime so use a const int variable
     const int MaximumMovies = 100;
 
@@ -308,8 +315,7 @@ int main()
     Movie movies[MaximumMovies];
 
     // Array operator []
-    // A[index] this is the array access operator
-    // If I want the first element I would take index 0 etc
+    //    A[index] = behaves like a variable
     Movie firstElement = movies[0];
 
     //Display main menu
