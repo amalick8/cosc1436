@@ -405,7 +405,6 @@ int main()
         char choice;
         std::cin >> choice;
 
-
         switch (choice)
         {
             case 'A':
