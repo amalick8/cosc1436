@@ -374,11 +374,30 @@ void ArrayDemo()
 }
 #pragma endregion
 
+void DisplayTable(int table[][], int size)
+{
+    for (int row = 0; row < size; ++row)
+    {
+        for (int col = 0; col < 31; ++col)
+         {
+            //Do stuff here
+            std::cout << table[row][col] << " ";
+         }
+
+        std::cout << std::endl;
+
+    }
+
+};
+
 void MultidimensionalArrayDemo()
 {
     //Months are the rows, days are columns
     //Init syntax is 1 row at a time
-    int months[12][31] = {1, 2, 3, 4, 5};
+    int months[12][31] = {
+        {1, 2, 3, 4, 5}, //Row 1
+        {2, 4 ,6, 8, 10},//Row 2
+    };
 
     for (int row = 0; row < 12; ++row)
         for (int col = 0; col < 31; ++col)
