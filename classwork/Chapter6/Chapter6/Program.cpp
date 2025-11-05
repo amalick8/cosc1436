@@ -374,6 +374,11 @@ void ArrayDemo()
 }
 #pragma endregion
 
+void MultidimensionalArrayDemo()
+{
+    int months[31][12];
+}
+
 int main()
 {
     //ArrayDemo();
