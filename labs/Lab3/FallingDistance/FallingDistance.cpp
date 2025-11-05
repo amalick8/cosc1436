@@ -47,7 +47,6 @@ double CalculateVelocity(int seconds)
 {
     double g = 9.8;
     double velocity;
-
     velocity = g * seconds;
 
     // confirm termainl velocity
@@ -55,7 +54,6 @@ double CalculateVelocity(int seconds)
     {
         velocity = 90.0;
     }
-
     return velocity;
 }
 
@@ -134,7 +132,6 @@ void DisplayFallingTable(int maxSeconds, char unit)
 
         sec++;
     }
-
     std::cout << std::endl;
 }
 //int main at the end

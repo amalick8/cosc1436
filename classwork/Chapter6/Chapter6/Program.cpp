@@ -153,9 +153,10 @@ void ViewMovie(Movie movie)
     std::cout << std::endl;
 }
 
-void ViewMovies( Movie movies[], int size )
+void ViewMovies(Movie movies[], int size)
 {
     //Enumerate movies until we run out
+    //for (Movie movie: movies)
     for (int index = 0; index < size; ++index)
     {
         if (movies[index].title == "")
@@ -163,8 +164,8 @@ void ViewMovies( Movie movies[], int size )
 
         ViewMovie(movies[index]);
     };
-       
 }
+
 /// <summary>Prompt user and add movie details.</summary>
 Movie AddMovie()
 {
@@ -199,9 +200,9 @@ Movie AddMovie()
     return movie;
 }
 
-void DeleteMovie(Movie& movie)
+void DeleteMovie()
 {
-    Movie movie
+    Movie movie;
     if (!Confirm("Are you sure you want to delete " + movie.title + "?"))
         return;
 
@@ -215,6 +216,11 @@ void EditMovie()
     DisplayWarning("Not implemented yet");
 }
 
+// Arrays as parameters
+//    T id[] - no size, arrays are open
+//    Always include size as next parameter because array sizes cannot be determined at runtime
+//    Arrays are always pass by reference
+//    Arrays cannot be the return type of a function
 int AddToMovieArray(Movie movies[], int size, Movie movie)
 {
     //Enumerate the array looking for the first blank movie
@@ -229,9 +235,10 @@ int AddToMovieArray(Movie movies[], int size, Movie movie)
     }
 
     DisplayError("No space available for new movie");
-    return -1; 
-
+    return -1;
 }
+
+#pragma region Function Overloading
 
 //Test function overloading
 void Display(int value)
@@ -285,6 +292,9 @@ void Display(short, int)
 //    Display('c', 4.56F);   // short, float
 //    Display((short)5, (short)10);
 //}
+#pragma endregion
+
+#pragma region Factorial
 
 int Factorial(int value)
 {
@@ -293,6 +303,9 @@ int Factorial(int value)
 
     return value * Factorial(value - 1);
 }
+#pragma endregion
+
+#pragma region Array Demo
 
 void ArrayDemo()
 {
@@ -300,7 +313,7 @@ void ArrayDemo()
 
     //Init array using { 0 }
     int numbers[MaxNumbers] = {0};
-    //int numbers[100];
+    //int numbers[100];        
 
     //# of days in each month
     //int daysInMonth[12] = { 0 };
@@ -314,10 +327,10 @@ void ArrayDemo()
     // Zero init - each element is set to 0// { 0 }
     // Full init - each element is assigned a value
     // Partial init - each element is assigned a value and remaining elements are 0 initialized    
-    int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    //int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
     // Implicit array sizing
-    //int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     //Set each element to its element number (element 1 = 1, element 2 = 2, etc)
     //Approach 1 for small arrays only
@@ -326,52 +339,51 @@ void ArrayDemo()
     numbers[2] = 3;
 
     //Approach 2 for any array
+    //for (int index = 0; index < MaxNumbers; ++index)
+        //numbers[index] = index + 1;
     int rangeIndex = 0;
-        for (int& number: numbers)
-            number = ++rangeIndex;
+    for (int& number : numbers)
+        number = ++rangeIndex;
+
+    /*for (int index = 0; index < MaxNumbers; ++index)
+        std::cout << numbers[index] << std::endl;*/
     //for-range ::= for (T var: array)
     for (int number: numbers)
-        std::cout << numbers << std::endl;
+        std::cout << number << std::endl;
 
     //Prefix/postfix and arrays
     // ++x := x = x + 1; ret x
-    // x++ := temp = x; x  = + 1; ret temp
+    // x++ := temp = x; x = x + 1; ret temp
     int outIndex = 0;
-    std::cout << ++numbers[outIndex] << std::endl; //Modifies element ++numbers[0], numbers[0] = 2, prints 2
-    std::cout << numbers[outIndex]++ << std::endl; //Modifies element, numbers[0]++, numbers[3] = 3, prints 2
-    std::cout << numbers[++outIndex] << std::endl; //Modifies index, numbers[++0], outIndex = 1
-                                                   // numbers[1], prints 2
-    std::cout << numbers[outIndex++] << std::endl; //Modifies index, numbers[0++], numbers[1++], outIndex = 2,
-                                                   // numbers[1], prints 2
+    std::cout << ++numbers[outIndex] << std::endl;//Modifies element, ++numbers[0], numbers[0] = 2, prints 2
+    std::cout << numbers[outIndex]++ << std::endl;//Modifies element, numbers[0]++, numbers[0] = 3, prints 2
+    std::cout << numbers[++outIndex] << std::endl;//Modifies index, numbers[++0], outIndex = 1, 
+                                                  //  numbers[1], prints 2
+    std::cout << numbers[outIndex++] << std::endl;//Modifies index, numbers[1++], outIndex = 2,
+                                                  //  numbers[1], prints 2
 
     //Arrays
     // Access elements
-    // Can't do
-    //int numbers2[MaxNumbers] = numbers; //Assignment, have to manually copy
+    // CAN'T
+    //int numbers2[MaxNumbers] = numbers;  //Assignment, have to manually copy using a for 
     int numbers3[MaxNumbers] = {0};
-    bool areArraysEqual = numbers == numbers3; //Comparison does't work, in(equality) complies but doesn't
+    bool areArraysEqual = numbers == numbers3; //Comparison doesn't work, (in)equality compiles but doesn't work
                                                // Have to use a for loop to compare elements
-
-    std::cout << numbers; //Output does not work, have to use a for loop
-    //std::cin >> numbers;  //Input will not compile
-
-    //If you want to print an Array, you need to use a for loop
-
-
-
-
+    std::cout << numbers;     //Output doesn't work, have to use a for loop
+    //std::cin >> numbers;      //Input will not compile
 }
+#pragma endregion
 
 int main()
 {
-    ArrayDemo();
+    //ArrayDemo();
     //std::cout << Factorial(5) << std::endl;
 
     //Cannot calculate the size of an array at runtime so use a const int variable
     const int MaximumMovies = 100;
 
     //TODO: Leaving this for now to avoid breaking code
-    Movie movie;
+    //Movie movie;
     Movie movies[MaximumMovies];
 
     // Array operator []
@@ -396,14 +408,14 @@ int main()
         switch (choice)
         {
             case 'A':
-            case 'a': AddToMovieArray(movies, MaximumMovies, AddMovie(());break;
+            case 'a': AddToMovieArray(movies, MaximumMovies, AddMovie()); break;
 
             case 'V':
             case 'v': ViewMovies(movies, MaximumMovies); break;
 
             case 'D':
-            case 'd': DeleteMovie(movie); break;
-                
+            case 'd': DeleteMovie(); break;
+
             case 'E':
             case 'e': EditMovie(); break;
 
