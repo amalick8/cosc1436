@@ -374,7 +374,18 @@ void ArrayDemo()
 }
 #pragma endregion
 
-void DisplayTable(int table[][], int size)
+void DisplayRow(int values[], int size)
+{
+    for (int row = 0; row < size; ++row)
+    {
+        //Do stuff here
+        std::cout << values[row] << " ";
+    }
+}
+
+
+//All dimensions beyond first must be specified in parameter declaration
+void DisplayTable(int table[][31], int size)
 {
     for (int row = 0; row < size; ++row)
     {
@@ -387,7 +398,7 @@ void DisplayTable(int table[][], int size)
         std::cout << std::endl;
 
     }
-
+ 
 };
 
 void MultidimensionalArrayDemo()
@@ -413,7 +424,7 @@ void MultidimensionalArrayDemo()
             std::cout << months[row][col] << " ";
         }
 
-    std::cout << std::endl;
+    DisplayTable(months, 12);
 }
 
 int main()
