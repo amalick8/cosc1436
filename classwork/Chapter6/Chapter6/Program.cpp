@@ -377,18 +377,26 @@ void ArrayDemo()
 void MultidimensionalArrayDemo()
 {
     //Months are the rows, days are columns
-    int months[31][12];
+    int months[12][31];
 
     for (int row = 0; row < 12; ++row)
         for (int col = 0; col < 31; ++col)
         {
             //Do stuff here
-            months[row][col](row + 1) * (col + 1);
+            months[row][col] = (row + 1) * (col + 1);
         }
+    for (int row = 0; row < 12; ++row)
+        for (int col = 0; col < 31; ++col)
+        {
+            //Do stuff here
+            std::cout << months[row][col] << " ";
+        }
+    std::cout << std::endl;
 }
 
 int main()
 {
+    MultidimensionalArrayDemo();
     //ArrayDemo();
     //std::cout << Factorial(5) << std::endl;
 
