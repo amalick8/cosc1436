@@ -385,12 +385,14 @@ void MultidimensionalArrayDemo()
             //Do stuff here
             months[row][col] = (row + 1) * (col + 1);
         }
+
     for (int row = 0; row < 12; ++row)
         for (int col = 0; col < 31; ++col)
         {
             //Do stuff here
             std::cout << months[row][col] << " ";
         }
+
     std::cout << std::endl;
 }
 
