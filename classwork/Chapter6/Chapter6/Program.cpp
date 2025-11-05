@@ -384,7 +384,7 @@ void MultidimensionalArrayDemo()
         {
             //Do stuff here
             months[row][col](row + 1) * (col + 1);
-        };
+        }
 }
 
 int main()
