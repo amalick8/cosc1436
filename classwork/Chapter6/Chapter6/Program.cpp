@@ -377,7 +377,7 @@ void ArrayDemo()
 void MultidimensionalArrayDemo()
 {
     //Months are the rows, days are columns
-    int months[12][31];
+    int months[12][31] = {0};
 
     for (int row = 0; row < 12; ++row)
         for (int col = 0; col < 31; ++col)
