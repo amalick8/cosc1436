@@ -389,16 +389,9 @@ void DisplayTable(int table[][31], int size)
 {
     for (int row = 0; row < size; ++row)
     {
-        for (int col = 0; col < 31; ++col)
-         {
-            //Do stuff here
-            std::cout << table[row][col] << " ";
-         }
-
-        std::cout << std::endl;
-
+            DisplayRow(table[row], 31);
+            std::cout << std::endl;
     }
- 
 };
 
 void MultidimensionalArrayDemo()
