@@ -384,7 +384,6 @@ void PointerDemo()
     // pInt is 8 bytes even though an int is 4 bytes
     int* pInt;
     pInt = &localInt;
-    localInt = 9876;
 }
 
 
