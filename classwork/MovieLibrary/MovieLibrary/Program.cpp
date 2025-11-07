@@ -379,6 +379,7 @@ void MultidimensionalArrayDemo()
 void PointerDemo()
 {
     // This variable is a pointer to an int
+    // pInt is 8 bytes even though an int is 4 bytes
     int* pInt;
 }
 
