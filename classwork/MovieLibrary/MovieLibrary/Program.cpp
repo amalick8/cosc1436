@@ -376,6 +376,13 @@ void MultidimensionalArrayDemo()
     DisplayTable(months, 12);
 }
 
+void PointerDemo()
+{
+    // This variable is a pointer to an int
+    int* pInt;
+}
+
+
 int main()
 {
     MultidimensionalArrayDemo();
