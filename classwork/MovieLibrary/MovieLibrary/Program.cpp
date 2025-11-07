@@ -386,6 +386,9 @@ void PointerDemo()
     pInt = &localInt;
 
     localInt = 9876;
+
+    // Dereferencing a pointer returns the original T value
+    *pInt =5678;
 }
 
 
