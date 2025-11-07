@@ -378,14 +378,18 @@ void MultidimensionalArrayDemo()
 
 void PointerDemo()
 {
+    int localInt = 1234;
+
     // This variable is a pointer to an int
     // pInt is 8 bytes even though an int is 4 bytes
     int* pInt;
+    pInt = &localInt;
 }
 
 
 int main()
 {
+    PointerDemo();
     MultidimensionalArrayDemo();
     //ArrayDemo();
     //std::cout << Factorial(5) << std::endl;
