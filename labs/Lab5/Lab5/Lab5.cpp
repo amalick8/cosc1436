@@ -1,5 +1,5 @@
 /*
- * Lab 5
+ * Trip Planner - Lab 5
  * M. Ammar Malick
  * COSC 1436 Fall 2025
  */
