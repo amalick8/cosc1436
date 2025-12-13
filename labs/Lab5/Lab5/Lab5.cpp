@@ -79,7 +79,6 @@ void DisplayProgramInfo()
     std::cout << "COSC 1436 Fall 2025" << std::endl;
     std::cout << std::endl;
 }
-
 int GetUserSpeed()
 {
     std::cout << "Enter your travel speed (1-60 mph): ";
