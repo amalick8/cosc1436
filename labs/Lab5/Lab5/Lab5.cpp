@@ -378,4 +378,4 @@ int main()
     ClearTrip(trip, MaxStops);
     
     return 0;
-}c
+}
